@@ -1,11 +1,14 @@
 #include <iostream>
 
-namespace kudrenok {
-void printName() {
+namespace kudrenok
+{
+void printName()
+{
  std::cout << "kudrenok.liza\n";
 }
 }
 
-int main() {
+int main()
+{
  kudrenok::printName();
 }
