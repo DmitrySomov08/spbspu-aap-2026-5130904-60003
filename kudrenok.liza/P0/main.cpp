@@ -1,7 +1,7 @@
 #include<iostream>
 namespace kudrenok{
 void print_name(){
-std::cout<<"kudrenok.Liza"<<"\n";
+std::cout<<"kudrenok.liza"<<"\n";
 }
 }
 int main(){
