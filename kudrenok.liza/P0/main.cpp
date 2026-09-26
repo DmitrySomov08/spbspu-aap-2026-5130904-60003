@@ -1,3 +1,6 @@
 #include<iostream>
 
-int main(){}
+int main(){
+  std::cout<<"Kudrenok.liza\n";
+  return 0;
+}
