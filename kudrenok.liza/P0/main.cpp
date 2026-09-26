@@ -2,6 +2,6 @@
 
 int main()
 {
-  std::cout << "kudrenok.liza\n";
+  std::cout<<"kudrenok.liza\n";
  return 0;
 }
