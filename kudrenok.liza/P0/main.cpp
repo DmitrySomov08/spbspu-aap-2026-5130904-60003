@@ -1,6 +1,10 @@
 #include<iostream>
-
+ namespace kudrenok{
+  void print_name(){
+     std::cout<<"kudrenok.Liza"<<"\n";
+   }
+}
 int main(){
-  std::cout<<"Kudrenok.liza\n";
+  kudrenok::print_name();
   return 0;
 }
