@@ -1,7 +1,12 @@
 #include <iostream>
-
+namespace kudrenok
+{
+void printName()
+{
+ std::cout<<"kudrenok.liza\n";
+}
+}
 int main()
 {
-  std::cout<<"kudrenok.liza\n";
- return 0;
+ kudrenok::printName();
 }
