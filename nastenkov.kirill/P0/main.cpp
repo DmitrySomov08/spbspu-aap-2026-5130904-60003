@@ -2,6 +2,5 @@
 
 int main()
 {
-    std::cout << "nastenkov.kirill\n";
-    return 0;
+  std::cout << "nastenkov.kirill\n";
 }
