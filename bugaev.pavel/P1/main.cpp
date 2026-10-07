@@ -3,8 +3,8 @@
 
 namespace bugaev
 {
-    const int Invalid_input = 1;
-    const int Invalid_arguments = 2;
+    const int invalid_input = 1;
+    const int invalid_arguments = 2;
 }
 int main()
 {
@@ -35,13 +35,13 @@ int main()
 
   if (!std::cin) {
     std::cerr << "Invalid input\n";
-    return bugaev::Invalid_input;
+    return bugaev::invalid_input;
   }
 
   std::cout << max_frag << '\n';
   if (count == 0) {
     std::cerr << "Invalid arguments\n";
-    return bugaev::Invalid_arguments;
+    return bugaev::invalid_arguments;
   }
   std::cout << min << '\n';
   return 0;
