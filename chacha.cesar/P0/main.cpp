@@ -1,6 +1,6 @@
 #include <iostream>
-int main ()
+int main()
 {
- std::cout<<"chacha.cesar\n";
+  std::cout << "chacha.cesar\n";
 }
 
