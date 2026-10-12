@@ -1,6 +1,7 @@
 #include <iostream>
 
-int main() {
+int main()
+{
     int num = 0;
     if (!(std::cin >> num)) {
         std::cerr << "Error: invalid input format" << std::endl;
