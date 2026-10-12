@@ -42,8 +42,7 @@ int main()
       min_count++;
     }
   }
-  if (!std::cin
-      && num != 0)
+  if (!std::cin && num != 0)
   {
     std::cerr << "Error: invalid input inside sequence" << std::endl;
     return 1;
