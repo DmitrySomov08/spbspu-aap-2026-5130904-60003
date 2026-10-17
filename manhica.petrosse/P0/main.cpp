@@ -1,7 +1,7 @@
 #include <iostream>
 
-int main(){
-std::cout << "manhica.petrosse\n";
+int main() {
+  std::cout << "manhica.petrosse\n";
 
-return 0;
+  return 0;
 }
