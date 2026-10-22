@@ -101,13 +101,13 @@ int main(int argc, char *argv[])
     int matrix[somov::max_stack_size] = {};
     is_read = somov::readMatrix(in, matrix, size);
     if (is_read) {
-      result = somov::findMaxSideDiagSum(matrix, rows, cols);
+      result = somov::maxSideDiagSum(matrix, rows, cols);
     }
   } else {
     int *matrix = new int[size];
     is_read = somov::readMatrix(in, matrix, size);
     if (is_read) {
-      result = somov::findMaxSideDiagSum(matrix, rows, cols);
+      result = somov::maxSideDiagSum(matrix, rows, cols);
     }
     delete[] matrix;
   }
