@@ -104,7 +104,7 @@ int main(int argc, char *argv[])
       result = somov::maxSideDiagSum(matrix, rows, cols);
     }
   } else {
-    int *matrix = new int[size];
+    int *const matrix = new int[size];
     is_read = somov::readMatrix(in, matrix, size);
     if (is_read) {
       result = somov::maxSideDiagSum(matrix, rows, cols);
