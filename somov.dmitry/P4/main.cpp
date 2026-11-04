@@ -63,8 +63,6 @@ int main()
   somov::combineStrings(str, somov::str2, comb_str, len, somov::len2);
   std::cout << "Combination of string1 and string2: " << comb_str << '\n';
 
-  std::cout << str << '\n';
-
   delete[] str;
   delete[] lower_str;
   delete[] comb_str;
