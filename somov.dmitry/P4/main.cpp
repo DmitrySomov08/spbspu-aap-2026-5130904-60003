@@ -4,28 +4,26 @@
 #include <iostream>
 
 namespace somov {
-  const std::size_t MAXSIZE = 10000;
+  const size_t MAXSIZE = 10000;
   const int correct_exit = 0;
   const int incorrect_string = 1;
   const char* const str2 = "def_";
-  const std::size_t len2 = std::strlen(str2);
+  const size_t len2 = strlen(str2);
 
-  char* toLowerCase(const char* str, char* lower_str, std::size_t len)
+  char* toLowerCase(const char* str, char* lower_str, size_t len)
   {
-    for (std::size_t i = 0; i < len; ++i) {
-      const unsigned char ch = static_cast< unsigned char >(str[i]);
-      lower_str[i] = static_cast< char >(std::tolower(ch));
+    for (size_t i = 0; i < len; ++i) {
+      lower_str[i] = static_cast< char >(std::tolower(str[i]));
     }
     lower_str[len] = '\0';
     return lower_str;
   }
 
-  char* combineStrings(const char* str1, const char* str2, char* comb_str,
-      std::size_t len1, std::size_t len2)
+  char* combineStrings(const char* str1, const char* str2, char* comb_str, size_t len1, size_t len2)
   {
-    std::size_t i = 0;
-    std::size_t j = 0;
-    std::size_t k = 0;
+    size_t i = 0;
+    size_t j = 0;
+    size_t k = 0;
     while (len1 > i || len2 > j) {
       if (len1 > i) {
         comb_str[k++] = str1[i++];
@@ -42,7 +40,7 @@ namespace somov {
 int main()
 {
   char* const str = new char[somov::MAXSIZE];
-  std::size_t len = 0;
+  size_t len = 0;
   char c = 0;
 
   while (std::cin.get(c) && c != '\n') {
@@ -53,6 +51,12 @@ int main()
     }
     str[len++] = c;
   }
+  
+  if (len == 0) {
+    std::cerr << "No input!";
+    return somov::incorrect_string;
+  }
+
   str[len] = '\0';
 
   char* const lower_str = new char[somov::MAXSIZE];
