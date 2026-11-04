@@ -4,23 +4,24 @@
 #include <iostream>
 
 namespace somov {
-  const size_t MAXSIZE = 10000;
+  const std::size_t MAXSIZE = 10000;
   const int correct_exit = 0;
   const int incorrect_string = 1;
-  const char * const str2 = "def_";
-  const size_t len2 = std::strlen(str2);
+  const char* const str2 = "def_";
+  const std::size_t len2 = std::strlen(str2);
 
-  char* toLowerCase(const char * str, char * lower_str, size_t len)
+  char* toLowerCase(const char* str, char* lower_str, std::size_t len)
   {
-    for (size_t i = 0; i < len; ++i) {
-      lower_str[i] = static_cast<char>(tolower(str[i]));
+    for (std::size_t i = 0; i < len; ++i) {
+      const unsigned char ch = static_cast< unsigned char >(str[i]);
+      lower_str[i] = static_cast< char >(std::tolower(ch));
     }
     lower_str[len] = '\0';
     return lower_str;
   }
 
-  char * combineStrings(const char * str1, const char * str2, char * comb_str,
-      size_t len1, size_t len2)
+  char* combineStrings(const char* str1, const char* str2, char* comb_str,
+      std::size_t len1, std::size_t len2)
   {
     std::size_t i = 0;
     std::size_t j = 0;
@@ -40,8 +41,8 @@ namespace somov {
 
 int main()
 {
-  char * str = new char[somov::MAXSIZE];
-  size_t len = 0;
+  char* const str = new char[somov::MAXSIZE];
+  std::size_t len = 0;
   char c = 0;
 
   while (std::cin.get(c) && c != '\n') {
@@ -54,8 +55,8 @@ int main()
   }
   str[len] = '\0';
 
-  char * lower_str = new char[somov::MAXSIZE];
-  char * comb_str = new char[somov::MAXSIZE + somov::len2];
+  char* const lower_str = new char[somov::MAXSIZE];
+  char* const comb_str = new char[somov::MAXSIZE + somov::len2];
 
   somov::toLowerCase(str, lower_str, len);
   std::cout << "String in lower case: " << lower_str << '\n';
