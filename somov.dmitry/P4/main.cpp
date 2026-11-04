@@ -54,6 +54,7 @@ int main()
 
   if (len == 0) {
     std::cerr << "No input!";
+    delete[] str;
     return somov::incorrect_string;
   }
 
