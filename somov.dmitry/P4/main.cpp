@@ -51,7 +51,7 @@ int main()
     }
     str[len++] = c;
   }
-  
+
   if (len == 0) {
     std::cerr << "No input!";
     return somov::incorrect_string;
