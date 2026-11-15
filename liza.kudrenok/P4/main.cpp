@@ -7,7 +7,6 @@ namespace kudrenok
   const int successCode = 0;
   const int ErrorCode = 1;
   const int step = 1;
-  const char *const second_str = "abc_ef";
 
   int yesChar(const char *str, char c)
   {
@@ -81,6 +80,7 @@ int main()
   char *res_variant5 = nullptr;
   int volume1 = 1;
   int length = 0;
+  const char *const second_str = "abc_ef";
 
   try
   {
