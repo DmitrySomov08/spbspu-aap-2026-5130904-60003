@@ -66,7 +66,7 @@ namespace kovalenko {
 
   static int processMatrix(int* data, const int rows, const int cols,
                            const long long count, std::ifstream& input,
-                           const char* output_name) 
+                           const char* output_name)
   {
     if (!readMatrix(input, data, count)) {
       std::cerr << "Input file has no correct matrix\n";
