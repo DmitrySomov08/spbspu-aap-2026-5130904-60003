@@ -64,7 +64,8 @@ namespace kovalenko {
     output << '\n';
   }
 
-  static int processMatrix(int* data, const int rows, const int cols, const long long count, std::ifstream& input, const char* output_name)
+  static int processMatrix(int* data, const int rows, const int cols, const long long count,
+    std::ifstream& input, const char* output_name)
   {
     if (!readMatrix(input, data, count)) {
       std::cerr << "Input file has no correct matrix\n";
@@ -93,7 +94,7 @@ namespace kovalenko {
       std::cerr << "Input file has no correct matrix\n";
       return code_bad_data;
     }
-    const long long count = static_cast<long long>(rows) * cols;
+    const long long count = static_cast< long long >(rows) * cols;
     if (std::strcmp(mode, "1") == 0) {
       if (count > max_stack_size) {
         std::cerr << "Matrix is too big for a fixed size\n";
@@ -103,7 +104,7 @@ namespace kovalenko {
       return processMatrix(stack_data, rows, cols, count, input, output_name);
     }
     if (std::strcmp(mode, "2") == 0) {
-      if (count > std::numeric_limits<int>::max()) {
+      if (count > std::numeric_limits< int >::max()) {
         std::cerr << "Matrix is too big\n";
         return code_bad_data;
       }
