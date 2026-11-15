@@ -7,6 +7,7 @@ namespace kudrenok
   const int successCode = 0;
   const int ErrorCode = 1;
   const int step = 1;
+  const char *const second_str = "abc_ef";
 
   int yesChar(const char *str, char c)
   {
