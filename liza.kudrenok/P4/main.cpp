@@ -132,8 +132,6 @@ int main()
     return kudrenok::ErrorCode;
   }
 
-  const char *const second_str = "abc_ef";
-
   kudrenok::findUncommonSym(input_str, second_str, res_variant5);
   kudrenok::removeGlasnai(input_str, res_variant18);
 
