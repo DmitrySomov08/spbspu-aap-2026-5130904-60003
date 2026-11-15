@@ -2,6 +2,7 @@
 #include <fstream>
 #include <iostream>
 #include <new>
+#include <limits>
 
 namespace kovalenko {
   const int max_stack_size = 10000;
@@ -44,9 +45,9 @@ namespace kovalenko {
     }
   }
 
-  static bool readMatrix(std::ifstream& input, int* data, const int count)
+  static bool readMatrix(std::ifstream& input, int* data, const long long count)
   {
-    for (int i = 0; i < count; ++i) {
+    for (long long i = 0; i < count; ++i) {
       if (!(input >> data[i])) {
         return false;
       }
@@ -57,7 +58,7 @@ namespace kovalenko {
   static void writeMatrix(std::ofstream& output, const int* data, const int rows, const int cols)
   {
     output << rows << ' ' << cols;
-    for (int i = 0; i < rows * cols; ++i) {
+    for (long long i = 0; i < count; ++i) {
       output << ' ' << data[i];
     }
     output << '\n';
@@ -92,7 +93,7 @@ namespace kovalenko {
       std::cerr << "Input file has no correct matrix\n";
       return code_bad_data;
     }
-    const int count = rows * cols;
+    const long long count = static_cast<long long>(rows) * cols;
     if (std::strcmp(mode, "1") == 0) {
       if (count > max_stack_size) {
         std::cerr << "Matrix is too big for a fixed size\n";
@@ -102,11 +103,12 @@ namespace kovalenko {
       return processMatrix(stack_data, rows, cols, input, output_name);
     }
     if (std::strcmp(mode, "2") == 0) {
+      if (count > std::numeric_limits<int>::max()) {
+        std::cerr << "Matrix is too big\n";
+        return code_bad_data;
+      }
       int* const heap_data = new int[count];
-      const int code = processMatrix(heap_data, rows, cols, input, output_name);
-      delete[] heap_data;
-      return code;
-    }
+      ...
     std::cerr << "Unknown mode\n";
     return code_bad_arguments;
   }
