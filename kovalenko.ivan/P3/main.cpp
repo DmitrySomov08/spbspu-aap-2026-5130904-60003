@@ -55,7 +55,7 @@ namespace kovalenko {
     return true;
   }
 
-  static void writeMatrix(std::ofstream& output, const int* data, const int rows, const int cols)
+  static void writeMatrix(std::ofstream& output, const int* data, const int rows, const int cols, const long long count)
   {
     output << rows << ' ' << cols;
     for (long long i = 0; i < count; ++i) {
@@ -64,9 +64,9 @@ namespace kovalenko {
     output << '\n';
   }
 
-  static int processMatrix(int* data, const int rows, const int cols, std::ifstream& input, const char* output_name)
+  static int processMatrix(int* data, const int rows, const int cols, const long long count, std::ifstream& input, const char* output_name)
   {
-    if (!readMatrix(input, data, rows * cols)) {
+    if (!readMatrix(input, data, count)) {
       std::cerr << "Input file has no correct matrix\n";
       return code_bad_data;
     }
@@ -76,7 +76,7 @@ namespace kovalenko {
       std::cerr << "Cant open output file\n";
       return code_bad_data;
     }
-    writeMatrix(output, data, rows, cols);
+    writeMatrix(output, data, rows, cols, count);
     return 0;
   }
 
@@ -100,7 +100,7 @@ namespace kovalenko {
         return code_bad_data;
       }
       int stack_data[max_stack_size] = {};
-      return processMatrix(stack_data, rows, cols, input, output_name);
+      return processMatrix(stack_data, rows, cols, count, input, output_name);
     }
     if (std::strcmp(mode, "2") == 0) {
       if (count > std::numeric_limits<int>::max()) {
@@ -108,7 +108,10 @@ namespace kovalenko {
         return code_bad_data;
       }
       int* const heap_data = new int[count];
-      ...
+      const int code = processMatrix(heap_data, rows, cols, count, input, output_name);
+      delete[] heap_data;
+      return code;
+    }
     std::cerr << "Unknown mode\n";
     return code_bad_arguments;
   }
