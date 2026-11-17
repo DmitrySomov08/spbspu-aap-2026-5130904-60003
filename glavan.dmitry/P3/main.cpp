@@ -25,7 +25,7 @@ namespace glavan {
       }
       bool has_zero = false;
       for (int row = 0; row < rows; ++row) {
-        int col = row + shift;
+        const int col = row + shift;
         if (col >= 0 && col < cols && matrix[row * cols + col] == 0) {
           has_zero = true;
         }
@@ -39,7 +39,7 @@ namespace glavan {
 
   int processMatrix(std::istream & in, std::ostream & out, int rows, int cols)
   {
-    int * matrix = new int[rows * cols];
+    int * const matrix = new int[rows * cols];
     if (!readMatrix(in, matrix, rows * cols)) {
       std::cerr << "Error: wrong matrix elements\n";
       delete[] matrix;
@@ -59,7 +59,7 @@ int main(int argc, char ** argv)
   }
 
   char * end = nullptr;
-  long num = std::strtol(argv[1], &end, 10);
+  const long num = std::strtol(argv[1], &end, 10);
   if (end == argv[1] || *end != '\0' || (num != 1 && num != 2)) {
     std::cerr << "Error: first parameter must be 1 or 2\n";
     return 1;
