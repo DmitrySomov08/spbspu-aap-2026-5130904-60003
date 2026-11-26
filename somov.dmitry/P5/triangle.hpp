@@ -4,15 +4,15 @@
 #include "base-types.hpp"
 #include "shape.hpp"
 
-class Triangle: public Shape {
+class Triangle: public Shape{
 public:
   Triangle(point_t a, point_t b, point_t c);
 
   double getArea() const override;
   rectangle_t getFrameRect() const override;
-  void move(const point_t& newPos) override;
-  void move(double dx, double dy) override;
-  void scale(double factor) override;
+  void move(const point_t&) override;
+  void move(double, double) override;
+  void scale(double) override;
 
 private:
   point_t a_;

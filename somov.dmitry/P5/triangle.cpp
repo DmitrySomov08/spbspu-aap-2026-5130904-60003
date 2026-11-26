@@ -18,7 +18,7 @@ Triangle::Triangle(point_t a, point_t b, point_t c):
   c_(c)
 {
   const double doubledArea = ((b_.x - a_.x) * (c_.y - a_.y)) - ((b_.y - a_.y) * (c_.x - a_.x));
-  if (std::abs(doubledArea) <= 0) {
+  if (std::abs(doubledArea) <= 0){
     throw std::invalid_argument("ERROR: Incorrect triangle!");
   }
 
@@ -52,14 +52,14 @@ rectangle_t Triangle::getFrameRect() const
   return {frameWidth, frameHeight, {posX, posY}};
 }
 
-void Triangle::move(const point_t& newPos)
+void Triangle::move(const point_t& new_pos)
 {
-  a_.x = newPos.x;
-  a_.y = newPos.y;
-  b_.x = newPos.x;
-  b_.y = newPos.y;
-  c_.x = newPos.x;
-  c_.y = newPos.y;
+  a_.x = new_pos.x;
+  a_.y = new_pos.y;
+  b_.x = new_pos.x;
+  b_.y = new_pos.y;
+  c_.x = new_pos.x;
+  c_.y = new_pos.y;
 }
 
 void Triangle::move(double dx, double dy)
@@ -76,7 +76,7 @@ void Triangle::move(double dx, double dy)
 
 void Triangle::scale(double factor)
 {
-  if (factor <= 0) {
+  if (factor <= 0){
     throw std::invalid_argument("ERROR: Incorrect factor for Triangle!");
   }
   a_.x = center_.x + factor * (a_.x - center_.x);

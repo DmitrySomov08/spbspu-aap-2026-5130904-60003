@@ -5,9 +5,10 @@
 
 class Shape;
 
-namespace somov {
+namespace somov{
   const int correctExit = 0;
   const int incorrectParam = 1;
+  const int internalError = 2;
 
   double findMin(double x1, double x2, double x3);
   double findMax(double x1, double x2, double x3);

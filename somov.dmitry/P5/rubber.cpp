@@ -2,8 +2,8 @@
 #include <stdexcept>
 
 Rubber::Rubber(double r1, double r2, point_t center, double dx, double dy):
-  minR_((r1 > r2) ? r2 : r1),
-  maxR_((r1 > r2) ? r1 : r2),
+  min_r_((r1 > r2) ? r2 : r1),
+  max_r_((r1 > r2) ? r1 : r2),
   center_(center),
   dx_(dx),
   dy_(dy)
@@ -12,21 +12,21 @@ Rubber::Rubber(double r1, double r2, point_t center, double dx, double dy):
 double Rubber::getArea() const
 {
   const double pi = 3.1415;
-  const double bigCircle = pi * maxR_ * maxR_;
-  const double smallCircle = pi * minR_ * minR_;
+  const double bigCircle = pi * max_r_ * max_r_;
+  const double smallCircle = pi * min_r_ * min_r_;
   return bigCircle - smallCircle;
 }
 
 rectangle_t Rubber::getFrameRect() const
 {
   const double diameterFactor = 2.0;
-  point_t frameCenter = {center_.x + dx_, center_.y + dy_};
-  return {diameterFactor * maxR_, diameterFactor * maxR_, frameCenter};
+  const point_t frame_center = {center_.x + dx_, center_.y + dy_};
+  return {diameterFactor * max_r_, diameterFactor * max_r_, frame_center};
 }
 
-void Rubber::move(const point_t& newCenter)
+void Rubber::move(const point_t& new_center)
 {
-  center_ = newCenter;
+  center_ = new_center;
 }
 
 void Rubber::move(double dx, double dy)
@@ -37,9 +37,9 @@ void Rubber::move(double dx, double dy)
 
 void Rubber::scale(double factor)
 {
-  if (factor <= 0) {
+  if (factor <= 0){
     throw std::invalid_argument("ERROR: Incorrect factor!");
   }
-  minR_ *= factor;
-  maxR_ *= factor;
+  min_r_ *= factor;
+  max_r_ *= factor;
 }
