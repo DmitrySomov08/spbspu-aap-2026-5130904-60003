@@ -46,9 +46,9 @@ int main()
   const int dx = 2.0;
   const int dy = 2.0;
 
-  Rectangle s1(width_r, height_r, center_r);
-  Triangle s2(a_t, b_t, c_t);
-  Rubber s3(r1, r2, center_rub, dx, dy);
+  const Rectangle s1(width_r, height_r, center_r);
+  const Triangle s2(a_t, b_t, c_t);
+  const Rubber s3(r1, r2, center_rub, dx, dy);
 
   std::cin >> scale_dot.x >> scale_dot.y >> factor;
   if (!std::cin)
@@ -73,7 +73,8 @@ int main()
     shapes[2] = new Rubber(s3);
 
     printShapesInfo(shapes);
-    for (std::size_t i = 0; i < shapeCount; ++i){
+    for (std::size_t i = 0; i < shapeCount; ++i)
+    {
       somov::scaleByDot(*shapes[i], scale_dot, factor);
     }
     std::cout << "\n";
@@ -81,18 +82,25 @@ int main()
     printShapesInfo(shapes);
     std::cout << "\n";
 
-    for (std::size_t i = 0; i < shapeCount; i++){
+    for (std::size_t i = 0; i < shapeCount; i++)
+    {
       delete shapes[i];
     }
-  }catch (const std::invalid_argument& e){
+  }
+  catch (const std::invalid_argument& e)
+  {
     std::cerr << e.what() << "\n";
-    for (std::size_t i = 0; i < shapeCount; i++){
+    for (std::size_t i = 0; i < shapeCount; i++)
+    {
       delete shapes[i];
     }
     return somov::incorrectParam;
-  }catch (const std::bad_alloc&){
+  }
+  catch (const std::bad_alloc&)
+  {
     std::cerr << "ERROR: Bad alloc!";
-    for (std::size_t i = 0; i < shapeCount; i++){
+    for (std::size_t i = 0; i < shapeCount; i++)
+    {
       delete shapes[i];
     }
     return somov::internalError;

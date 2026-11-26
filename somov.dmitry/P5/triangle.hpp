@@ -11,7 +11,7 @@ public:
 
   double getArea() const override;
   rectangle_t getFrameRect() const override;
-  void move(const point_t&) override;
+  void move(const point_t &) override;
   void move(double, double) override;
   void scale(double) override;
 
