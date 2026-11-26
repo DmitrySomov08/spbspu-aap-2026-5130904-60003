@@ -37,7 +37,8 @@ void Rubber::move(double dx, double dy)
 
 void Rubber::scale(double factor)
 {
-  if (factor <= 0){
+  if (factor <= 0)
+  {
     throw std::invalid_argument("ERROR: Incorrect factor!");
   }
   min_r_ *= factor;

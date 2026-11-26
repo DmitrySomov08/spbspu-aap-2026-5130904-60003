@@ -18,7 +18,8 @@ Triangle::Triangle(point_t a, point_t b, point_t c):
   c_(c)
 {
   const double doubledArea = ((b_.x - a_.x) * (c_.y - a_.y)) - ((b_.y - a_.y) * (c_.x - a_.x));
-  if (std::abs(doubledArea) <= 0){
+  if (std::abs(doubledArea) <= 0)
+  {
     throw std::invalid_argument("ERROR: Incorrect triangle!");
   }
 
@@ -76,7 +77,8 @@ void Triangle::move(double dx, double dy)
 
 void Triangle::scale(double factor)
 {
-  if (factor <= 0){
+  if (factor <= 0)
+  {
     throw std::invalid_argument("ERROR: Incorrect factor for Triangle!");
   }
   a_.x = center_.x + factor * (a_.x - center_.x);

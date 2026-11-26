@@ -4,7 +4,8 @@
 #include "base-types.hpp"
 #include "shape.hpp"
 
-class Rubber: public Shape{
+class Rubber: public Shape
+{
 public:
   Rubber(double r1, double r2, point_t center, double dx, double dy);
 

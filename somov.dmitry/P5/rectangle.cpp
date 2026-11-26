@@ -6,7 +6,8 @@ Rectangle::Rectangle(double width, double height, point_t pos):
   height_(height),
   center_(pos)
 {
-  if ((width_ <= 0) || (height_ <= 0)){
+  if ((width_ <= 0) || (height_ <= 0))
+  {
     throw std::invalid_argument("ERROR: Incorrect sizes of rectangle!\n");
   }
 }
@@ -34,7 +35,8 @@ void Rectangle::move(double dx, double dy)
 
 void Rectangle::scale(double factor)
 {
-  if (factor <= 0){
+  if (factor <= 0)
+  {
     throw std::invalid_argument("ERROR: Incorrect k!\n");
   }
   width_ = width_ * factor;

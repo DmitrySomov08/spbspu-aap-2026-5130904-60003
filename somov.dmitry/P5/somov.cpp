@@ -6,10 +6,12 @@
 double somov::findMin(double x1, double x2, double x3)
 {
   double result = x1;
-  if (x2 < result){
+  if (x2 < result)
+  {
     result = x2;
   }
-  if (x3 < result){
+  if (x3 < result)
+  {
     result = x3;
   }
   return result;
@@ -18,10 +20,12 @@ double somov::findMin(double x1, double x2, double x3)
 double somov::findMax(double x1, double x2, double x3)
 {
   double result = x1;
-  if (x2 > result){
+  if (x2 > result)
+  {
     result = x2;
   }
-  if (x3 > result){
+  if (x3 > result)
+  {
     result = x3;
   }
   return result;
@@ -37,7 +41,8 @@ void somov::printRectangle(const rectangle_t& rect)
 
 void somov::scaleByDot(Shape& shape, const point_t& dot, double factor)
 {
-  if (factor <= 0){
+  if (factor <= 0)
+  {
     throw std::invalid_argument("ERROR: Incorrect factor!");
   }
   const point_t oldPos = shape.getFrameRect().pos;
