@@ -1,14 +1,16 @@
 #include <cctype>
 #include <cstddef>
+#include <new>
 #include <cstring>
 #include <iostream>
 
 namespace somov {
-  const size_t MAXSIZE = 10000;
+  const size_t MAXSIZE = 1000000000;
   const int correct_exit = 0;
   const int incorrect_string = 1;
+  const int internal_error = 2;
   const char* const str2 = "def_";
-  const size_t len2 = strlen(str2);
+  const size_t len2 = std::strlen(str2);
 
   char* toLowerCase(const char* str, char* lower_str, size_t len)
   {
@@ -39,7 +41,24 @@ namespace somov {
 
 int main()
 {
-  char* const str = new char[somov::MAXSIZE];
+  char* str = nullptr;
+  char* lower_str = nullptr;
+  char* comb_str = nullptr;
+
+  try {
+    str = new char[somov::MAXSIZE];
+    lower_str = new char[somov::MAXSIZE];
+    comb_str = new char[somov::MAXSIZE + somov::len2];
+  }
+
+  catch (const std::bad_alloc&) {
+    std::cerr << "Not enough memory!\n";
+    delete[] str;
+    delete[] lower_str;
+    delete[] comb_str;
+    return somov::internal_error;
+  }
+
   size_t len = 0;
   char c = 0;
 
@@ -47,21 +66,22 @@ int main()
     if (len + 1 >= somov::MAXSIZE) {
       std::cerr << "Sorry, your string is out of range!\n";
       delete[] str;
+      delete[] lower_str;
+      delete[] comb_str;
       return somov::incorrect_string;
     }
     str[len++] = c;
   }
 
   if (len == 0) {
-    std::cerr << "No input!";
+    std::cerr << "No input!\n";
     delete[] str;
+    delete[] lower_str;
+    delete[] comb_str;
     return somov::incorrect_string;
   }
 
   str[len] = '\0';
-
-  char* const lower_str = new char[somov::MAXSIZE];
-  char* const comb_str = new char[somov::MAXSIZE + somov::len2];
 
   somov::toLowerCase(str, lower_str, len);
   std::cout << "String in lower case: " << lower_str << '\n';
