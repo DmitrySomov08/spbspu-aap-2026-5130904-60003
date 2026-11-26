@@ -68,7 +68,7 @@ int main()
       delete shapes[i];
     }
     return somov::incorrectParam;
-  }catch (const std::bad_alloc){
+  }catch (const std::bad_alloc&){
     std::cerr << "ERROR: Bad alloc!";
     for (std::size_t i = 0; i < shapeCount; i++){
       delete shapes[i];
