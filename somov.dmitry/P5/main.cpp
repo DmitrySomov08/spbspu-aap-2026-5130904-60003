@@ -54,7 +54,7 @@ int main()
     for (std::size_t i = 0; i < shapeCount; i++) {
         delete shapes[i];
     }
-  } 
+  }
   catch (const std::invalid_argument& e) {
     std::cerr << e.what() << "\n";
     for (std::size_t i = 0; i < shapeCount; i++) {
