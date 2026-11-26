@@ -61,10 +61,25 @@ rectangle_t somov::getBigFrameRect(const Shape* s1, const Shape* s2, const Shape
   const rectangle_t f2 = s2->getFrameRect();
   const rectangle_t f3 = s3->getFrameRect();
 
-  const double min_x = findMin(f1.pos.x - (f1.width * half), f2.pos.x - (f2.width * half), f3.pos.x - (f3.width * half));
-  const double max_x= findMax(f1.pos.x + (f1.width * half), f2.pos.x + (f2.width * half), f3.pos.x + (f3.width * half));
-  const double min_y= findMin(f1.pos.y - (f1.height * half), f2.pos.y - (f2.height * half), f3.pos.y - (f3.height * half));
-  const double max_y= findMax(f1.pos.y + (f1.height * half), f2.pos.y + (f2.height * half), f3.pos.y + (f3.height * half));
+  const double x1_min = f1.pos.x - (f1.width * half);
+  const double x2_min = f2.pos.x - (f2.width * half);
+  const double x3_min = f3.pos.x - (f3.width * half);
+  const double min_x = findMin(x1_min, x2_min, x3_min);
+
+  const double x1_max = f1.pos.x + (f1.width * half);
+  const double x2_max = f2.pos.x + (f2.width * half);
+  const double x3_max = f3.pos.x + (f3.width * half);
+  const double max_x = findMax(x1_max, x2_max, x3_max);
+
+  const double y1_min = f1.pos.y - (f1.height * half);
+  const double y2_min = f2.pos.y - (f2.height * half);
+  const double y3_min = f3.pos.y - (f3.height * half);
+  const double min_y = findMin(y1_min, y2_min, y3_min);
+
+  const double y1_max = f1.pos.y + (f1.height * half);
+  const double y2_max = f2.pos.y + (f2.height * half);
+  const double y3_max = f3.pos.y + (f3.height * half);
+  const double max_y = findMax(y1_max, y2_max, y3_max);
 
   const double width = max_x - min_x;
   const double height = max_y - min_y;
